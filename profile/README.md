@@ -6,7 +6,7 @@
 <h3 align="center">Own Every Layer</h3>
 
 <p align="center">
-  Sovereign data platform — open-source alternative to Databricks, Snowflake, and Cloudera.<br/>
+  Sovereign analytics stack — open-source alternative to proprietary cloud solutions.<br/>
   From raw storage to AI-powered insights, every component runs on your infrastructure.
 </p>
 
@@ -14,7 +14,7 @@
 
 ### What is AKKO?
 
-AKKO (**A**nalytics **K**ernel, **K**eep **O**wnership) is a sovereign data platform that unifies 30+ open-source services into a turnkey lakehouse stack. It deploys via **Docker Compose** (development) or **Helm/Kubernetes** (production) behind a single reverse proxy with SSO.
+AKKO (**A**nalytics **K**ernel, **K**eep **O**wnership) is a sovereign analytics stack that unifies 30+ open-source services into a turnkey lakehouse. It deploys via **Docker Compose** (development) or **Helm/Kubernetes** (production) behind a single reverse proxy with SSO.
 
 | Layer | Components |
 |-------|-----------|
