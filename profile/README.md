@@ -14,7 +14,7 @@
 
 ### What is AKKO?
 
-AKKO (**A**nalytics **K**ernel, **K**eep **O**wnership) is a sovereign analytics stack that unifies 30+ open-source services into a turnkey lakehouse. It deploys via **Docker Compose** (development) or **Helm/Kubernetes** (production) behind a single reverse proxy with SSO.
+AKKO (**A**nalytics **K**ernel, **K**eep **O**wnership) is a sovereign data platform that unifies 30+ open-source services into a turnkey lakehouse. It deploys via **Helm on Kubernetes** (k3d for dev, any k8s distribution for production) behind a single reverse proxy with SSO.
 
 | Layer | Components |
 |-------|-----------|
@@ -33,24 +33,30 @@ AKKO (**A**nalytics **K**ernel, **K**eep **O**wnership) is a sovereign analytics
 - **No vendor lock-in** -- open standards (Iceberg, S3, SQL, OAuth2), swap any component
 - **AI-native** -- local LLMs via Ollama + LiteLLM (OpenAI-compatible API), zero cloud costs
 - **Fine-grained access** -- OPA policies for Trino: row-level security, column masking, ABAC
-- **Two deployment modes** -- Docker Compose for dev, Helm/Kubernetes for production
+- **Kubernetes-first** -- single `helm install` on k3d (dev), k3s, EKS, GKE, AKS, or bare-metal k8s. Docker Compose available as legacy/development option
 
 ### Quick Start
 
-**Docker Compose:**
+**Helm / Kubernetes (recommended):**
+
+```bash
+git clone https://github.com/AKKO-p/AKKO.git && cd AKKO
+cd helm/scripts && bash deploy.sh   # spins up k3d + helm install
+```
+
+Open [https://akko.local](https://akko.local) to access the Cockpit portal.
+
+<details>
+<summary>Legacy: Docker Compose (development only)</summary>
 
 ```bash
 git clone https://github.com/AKKO-p/AKKO.git && cd AKKO
 ./scripts/start.sh
 ```
 
-**Kubernetes (Helm):**
+Open [https://localhost](https://localhost) to access the Cockpit portal.
 
-```bash
-cd helm/scripts && bash deploy.sh
-```
-
-Open [https://localhost](https://localhost) (Docker) or [https://akko.local](https://akko.local) (k3d) to access the Cockpit portal.
+</details>
 
 ### Repositories
 
