@@ -14,7 +14,7 @@
 
 ### What is AKKO?
 
-AKKO (**A**nalytics **K**ernel, **K**eep **O**wnership) is a sovereign data platform that unifies 30+ open-source services into a turnkey lakehouse. It deploys via **Helm on Kubernetes** (k3d for dev, any k8s distribution for production) behind a single reverse proxy with SSO.
+AKKO (**A**nalytics **K**ernel, **K**eep **O**wnership) is a sovereign analytics stack that unifies 30+ open-source services into a turnkey lakehouse. It deploys via **Helm on Kubernetes** (k3d for dev, any k8s distribution for production) behind a single reverse proxy with SSO.
 
 | Layer | Components |
 |-------|-----------|
@@ -23,7 +23,7 @@ AKKO (**A**nalytics **K**ernel, **K**eep **O**wnership) is a sovereign data plat
 | **Notebooks** | JupyterHub (Python, R, Julia, VS Code, Quarto) |
 | **BI & Orchestration** | Apache Superset, Apache Airflow 3 + OpenLineage |
 | **Governance** | OpenMetadata (catalog, lineage, quality, glossary) |
-| **Security** | Keycloak SSO (14 clients, 4 RBAC roles), OPA (row-level security, column masking) |
+| **Security** | Keycloak SSO (15 clients, 5 RBAC roles), OPA (row-level security, column masking) |
 | **AI / LLM** | Ollama + LiteLLM gateway (Qwen 2.5, zero data leakage) |
 | **Monitoring** | Prometheus, Grafana, Loki, AlertManager |
 
@@ -33,7 +33,7 @@ AKKO (**A**nalytics **K**ernel, **K**eep **O**wnership) is a sovereign data plat
 - **No vendor lock-in** -- open standards (Iceberg, S3, SQL, OAuth2), swap any component
 - **AI-native** -- local LLMs via Ollama + LiteLLM (OpenAI-compatible API), zero cloud costs
 - **Fine-grained access** -- OPA policies for Trino: row-level security, column masking, ABAC
-- **Kubernetes-first** -- single `helm install` on k3d (dev), k3s, EKS, GKE, AKS, or bare-metal k8s. Docker Compose available as legacy/development option
+- **Kubernetes-first** -- single `helm install` on k3d (dev), k3s, EKS, GKE, AKS, or bare-metal k8s. Docker Compose support deprecated — Kubernetes-first deployment
 
 ### Quick Start
 
@@ -47,7 +47,7 @@ cd helm/scripts && bash deploy.sh   # spins up k3d + helm install
 Open [https://akko.local](https://akko.local) to access the Cockpit portal.
 
 <details>
-<summary>Legacy: Docker Compose (development only)</summary>
+<summary>Deprecated: Docker Compose (not recommended)</summary>
 
 ```bash
 git clone https://github.com/AKKO-p/AKKO.git && cd AKKO
