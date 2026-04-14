@@ -20,7 +20,7 @@ AKKO (**A**nalytics **K**ernel, **K**eep **O**wnership) is a sovereign analytics
 |-------|-----------|
 | **Lakehouse** | MinIO (S3) + Apache Iceberg + Apache Polaris |
 | **Compute** | Spark Connect, Trino 480 (federated SQL) |
-| **Notebooks** | JupyterHub (Python, R, Julia, VS Code, Quarto) |
+| **Notebooks** | JupyterHub (Python, R, Julia, Scala/Almond, VS Code, Quarto, Mermaid diagrams) |
 | **BI & Orchestration** | Apache Superset, Apache Airflow 3 + OpenLineage |
 | **Governance** | OpenMetadata 1.12.1 (catalog, lineage, quality, glossary) |
 | **Semantic Layer** | dbt Core (versioned SQL transformations, metrics, data tests) |
@@ -37,7 +37,7 @@ AKKO (**A**nalytics **K**ernel, **K**eep **O**wnership) is a sovereign analytics
 - **No vendor lock-in** -- open standards (Iceberg, S3, SQL, OAuth2), swap any component
 - **AI-native** -- local LLMs via Ollama + LiteLLM (OpenAI-compatible API), MCP servers for sovereign AI agents, 13 AI SQL functions in Trino, zero cloud costs
 - **Fine-grained access** -- OPA policies for Trino: row-level security, column masking, ABAC. AI RBAC via OPA
-- **Kubernetes-first** -- single `helm install` on k3d (dev), k3s, EKS, GKE, AKS, or bare-metal k8s. 29 sub-charts, 10 custom Docker images
+- **Kubernetes-first** -- single `helm install` on k3d (dev), k3s, EKS, GKE, AKS, or bare-metal k8s. 29 sub-charts, 11 custom Docker images
 - **Full audit trail** -- 6 event sources aggregated in Loki with Grafana dashboards for compliance (DORA, NIS2, RGPD)
 
 ### Quick Start
