@@ -6,7 +6,7 @@
 <h3 align="center">Own Every Layer</h3>
 
 <p align="center">
-  Sovereign analytics platform — open-source alternative to proprietary cloud solutions.<br/>
+  Sovereign data &amp; AI platform for regulated industries.<br/>
   From raw storage to AI-powered insights, every component runs on your infrastructure.
 </p>
 
@@ -14,7 +14,7 @@
 
 ### What is AKKO?
 
-AKKO (**A**nalytics **K**ernel, **K**eep **O**wnership) is a sovereign analytics platform that unifies 33+ open-source services into a turnkey lakehouse. It deploys via **Helm on Kubernetes** (k3d for dev, any k8s distribution for production) behind a single reverse proxy with SSO.
+AKKO (**A**nalytics **K**ernel, **K**eep **O**wnership) is a sovereign data &amp; AI platform that unifies 33+ best-in-class services into a turnkey lakehouse. It deploys via **Helm on Kubernetes** (k3d for dev, any k8s distribution for production — OpenShift, OVHcloud, Outscale, EKS, AKS, GKE, bare-metal, air-gapped) behind a single reverse proxy with SSO. Chart and images are delivered from `harbor.akko-ai.com`.
 
 | Layer | Components |
 |-------|-----------|
@@ -28,16 +28,17 @@ AKKO (**A**nalytics **K**ernel, **K**eep **O**wnership) is a sovereign analytics
 | **AI / LLM** | Ollama + LiteLLM gateway (Qwen 2.5, zero data leakage), 13 native Trino AI SQL UDFs |
 | **AI Agents** | MCP Servers (Trino + OpenMetadata) for sovereign AI agents (Claude, Cursor) |
 | **ML** | MLflow (experiment tracking, model registry, artifact store on MinIO) |
-| **Monitoring** | Prometheus, Grafana, Loki, AlertManager |
+| **Monitoring** | Prometheus, VictoriaMetrics, VictoriaLogs, Alertmanager, Tempo (all Apache 2.0) |
 | **Audit Trail** | 6 sources (Keycloak, OPA, Trino, Airflow, MinIO, OpenMetadata) aggregated in Loki, visualized in Grafana |
 
 ### Why AKKO?
 
 - **Data sovereignty** -- every byte stays on your infrastructure (RGPD, DORA, NIS2, air-gapped)
 - **No vendor lock-in** -- open standards (Iceberg, S3, SQL, OAuth2), swap any component
-- **AI-native** -- local LLMs via Ollama + LiteLLM (OpenAI-compatible API), MCP servers for sovereign AI agents, 13 AI SQL functions in Trino, zero cloud costs
+- **AI-native** -- local LLMs via Ollama + LiteLLM (OpenAI-compatible API), MCP servers for sovereign AI agents, **21 AI SQL functions** in Trino via **ADEN** (AKKO Data-Engine Native) covering text + PDF + audio + image + OCR, zero cloud costs
 - **Fine-grained access** -- OPA policies for Trino: row-level security, column masking, ABAC. AI RBAC via OPA
-- **Kubernetes-first** -- single `helm install` on k3d (dev), k3s, EKS, GKE, AKS, or bare-metal k8s. 29 sub-charts, 11 custom Docker images
+- **Kubernetes-first** -- single `helm install oci://harbor.akko-ai.com/akko-charts/akko --version 2026.04` on k3d (dev), k3s, OpenShift, OVHcloud, Outscale, EKS, AKS, GKE, or bare-metal k8s. 35 sub-charts, 13 custom Docker images (Cosign-signed, Trivy-scanned)
+- **Self-service catalog manager** -- onboard any client source (PostgreSQL, MySQL, Oracle, Snowflake, BigQuery, Databricks, Hive + HDFS + Kerberos for Cloudera CDP 7.1.9, Kafka, MongoDB…) from the cockpit with zero downtime (Trino 480 dynamic catalogs)
 - **Full audit trail** -- 6 event sources aggregated in Loki with Grafana dashboards for compliance (DORA, NIS2, RGPD)
 
 ### Quick Start
